@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptomics – Securing the Genome</title>
+  <meta name="description" content="Cryptomics builds cryptography-first infrastructure for safe, fine-grained access to genomic data." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="logo">Cryptomics</div>
+      <nav class="nav">
+        <a href="#problem">Problem</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-content">
+          <p class="eyebrow">GENOMICS × CRYPTOGRAPHY</p>
+          <h1>Infrastructure for safely using genomic data at scale.</h1>
+          <p class="hero-subtitle">
+            Cryptomics is building region-aware, policy-enforced key infrastructure so health systems, biotechs, and forensic labs can use genomic data
+            without overexposing irreversible personal information.
+          </p>
+          <p class="hero-footnote">Early-stage. If you're working with genomic data and security, we'd love to talk.</p>
+        </div>
+      </section>
+
+      <section class="section" id="problem">
+        <div class="section-header">
+          <h2>The problem</h2>
+          <p>
+            Genomic data powers precision medicine, drug discovery, risk prediction, consumer genomics, and forensics. At the same time, genomes are uniquely
+            identifying and effectively immutable once exposed, harm cannot be undone and re-identification risk only grows.
+          </p>
+        </div>
+        <div class="grid two-cols">
+          <div class="card">
+            <h3>Locked away or overexposed</h3>
+            <p>
+              Today, institutions face a false choice. Genomic data is either locked down, slowing research and clinical progress, or broadly shared,
+              creating high risk of re-identification, discrimination, and misuse.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Monolithic files, blunt access</h3>
+            <p>
+              Existing security models treat genomes as monolithic files (VCF, BAM, FASTA) with all-or-nothing access. They ignore region-level risk
+              (e.g., BRCA1 vs. neutral regions) and lack role-, purpose-, and time-bounded controls.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Policy on paper, not in code</h3>
+            <p>
+              HIPAA, GDPR, IRB, and consent forms live on paper or in PDFs. Enforcement is manual and after the fact, rather than encoded directly
+              into how keys are issued and data is accessed.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Security that users work around</h3>
+            <p>
+              Crypto, key management, and file formats are invisible, brittle, or bolted on. Analysts, clinicians, and investigators work around
+              security controls to get their job done, eroding trust for participants and regulators.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="approach">
+        <div class="section-header">
+          <h2>Our approach</h2>
+          <p>
+            Cryptomics combines modern cryptography, fine-grained data architecture, and machine-enforceable policy to make region-level access control
+            feel like a normal analysis workflow.
+          </p>
+        </div>
+        <div class="grid three-cols">
+          <div class="card highlight">
+            <h3>Region-aware cryptography</h3>
+            <ul>
+              <li>Per-gene / per-interval keys (e.g., BRCA1, APOE, panels) instead of whole-file secrets.</li>
+              <li>Purpose-limited, time-bounded key material using modern primitives (e.g., AES-GCM, KMS).</li>
+              <li>Protocols where computations run on encrypted genomes; raw data is rarely decrypted.</li>
+            </ul>
+          </div>
+          <div class="card highlight">
+            <h3>Fine-grained data architecture</h3>
+            <ul>
+              <li>Refactor genomes from monolithic VCF/BAM into addressable units: genes, regions, panels.</li>
+              <li>Region-level access policies and audit logs: who touched which locus, when, and why.</li>
+              <li>Designed for clinical pipelines, research workflows, and forensic queries.</li>
+            </ul>
+          </div>
+          <div class="card highlight">
+            <h3>Policy-aligned by default</h3>
+            <ul>
+              <li>Translate consent, IRB, and regulatory requirements into machine-enforceable policies.</li>
+              <li>Keys are gated by policy decisions, not just network perimeter or file permissions.</li>
+              <li>Audit trails that stand up to regulators, ethics boards, and participants.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="contact">
+        <div class="cta">
+          <h2>Working on secure genomics?</h2>
+          <p>
+            We're speaking with health systems, biobanks, biotechs, and forensic teams who need to safely unlock genomic data. If this is you,
+            let's talk.
+          </p>
+          <a class="btn primary" href="https://www.linkedin.com" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Cryptomics. All rights reserved.</span>
+      <span>Cryptography-first infrastructure for genomic data.</span>
+    </footer>
+  </div>
+
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
