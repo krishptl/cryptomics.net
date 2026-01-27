@@ -15,52 +15,60 @@ html {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
-  background: #050814;
-  color: #f6f7fb;
+  background: #f5f7fb;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
 }
 
 .page {
   min-height: 100vh;
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 24px 20px 40px;
+  padding: 28px 24px 44px;
 }
 
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 16px;
+  padding: 8px 0 10px;
   position: sticky;
   top: 0;
   z-index: 20;
-  background: #050814;
-  backdrop-filter: blur(12px);
+  background: #f5f7fb;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .site-header.scrolled {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-  border-bottom: 1px solid rgba(40, 46, 95, 0.9);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
 }
 
 .logo {
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  display: block;
+  height: 30px;
+  width: auto;
+  margin-right: 4px;
 }
 
 .nav {
   display: flex;
-  gap: 20px;
-  font-size: 0.9rem;
+  gap: 18px;
+  font-size: 0.88rem;
 }
 
 .nav a {
-  color: #c5c9f5;
+  color: #6b7280;
   text-decoration: none;
   opacity: 0.85;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
 }
 
 .nav a:hover {
@@ -69,20 +77,22 @@ body {
 
 .nav a.active {
   opacity: 1;
-  color: #ffffff;
+  color: #111827;
+  border-bottom-color: #1d4ed8;
 }
 
 .nav-cta {
   padding: 6px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(140, 149, 255, 0.8);
-  background: radial-gradient(circle at top left, rgba(149, 133, 255, 0.25), transparent),
-    rgba(14, 18, 52, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.85);
+  background: linear-gradient(120deg, #1d4ed8, #4338ca);
   font-weight: 500;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
 }
 
 .hero {
-  padding: 72px 0 40px;
+  padding: 56px 0 40px;
 }
 
 .hero-content {
@@ -93,7 +103,7 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #8f9bff;
+  color: #1d4ed8;
   margin-bottom: 16px;
 }
 
@@ -105,7 +115,7 @@ body {
 
 .hero-subtitle {
   font-size: 1rem;
-  color: #d0d3f0;
+  color: #4b5563;
   line-height: 1.6;
   margin-bottom: 24px;
 }
@@ -119,7 +129,7 @@ body {
 
 .hero-footnote {
   font-size: 0.85rem;
-  color: #a3a8d8;
+  color: #6b7280;
   margin-top: 8px;
 }
 
@@ -138,8 +148,8 @@ body {
 }
 
 .btn.primary {
-  background: linear-gradient(120deg, #4c5cff, #a855f7);
-  color: #fff;
+  background: linear-gradient(120deg, #1d4ed8, #4338ca);
+  color: #ffffff;
 }
 
 .btn.primary:hover {
@@ -147,18 +157,18 @@ body {
 }
 
 .btn.secondary {
-  background: rgba(27, 33, 71, 0.8);
-  color: #c5c9f5;
-  border-color: rgba(108, 115, 240, 0.6);
+  background: #ffffff;
+  color: #1f2937;
+  border-color: rgba(148, 163, 184, 0.9);
 }
 
 .btn.secondary:hover {
-  background: rgba(35, 42, 92, 0.9);
+  background: #e5f0ff;
 }
 
 .section {
   padding: 72px 0 40px;
-  border-top: 1px solid rgba(40, 46, 95, 0.9);
+  border-top: 1px solid #e5e7eb;
 }
 
 /* Add a bit of extra visual separation between stacked sections */
@@ -172,18 +182,18 @@ body {
 
 .section-header {
   max-width: 720px;
-  margin: 0 0 18px;
+  margin: 0 auto 22px;
   text-align: left;
 }
 
 .section-header h2 {
   font-size: 1.6rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .section-header p {
   font-size: 0.98rem;
-  color: #cfd3f5;
+  color: #4b5563;
   line-height: 1.7;
 }
 
@@ -200,7 +210,7 @@ body {
 }
 
 .how-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .step-card {
@@ -220,7 +230,7 @@ body {
 
 .faq-list {
   max-width: 720px;
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -228,8 +238,8 @@ body {
 
 .faq-item {
   border-radius: 14px;
-  border: 1px solid rgba(114, 127, 221, 0.45);
-  background: #070a15;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: #ffffff;
   overflow: hidden;
 }
 
@@ -238,7 +248,7 @@ body {
   padding: 12px 16px;
   background: transparent;
   border: none;
-  color: #f6f7fb;
+  color: #111827;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -249,7 +259,7 @@ body {
 .faq-icon {
   margin-left: 12px;
   font-size: 1rem;
-  color: #8f9bff;
+  color: #4f46e5;
 }
 
 .faq-answer {
@@ -257,13 +267,20 @@ body {
   overflow: hidden;
   padding: 0 16px;
   font-size: 0.9rem;
-  color: #d6dafc;
+  color: #4b5563;
   line-height: 1.6;
-  transition: max-height 0.2s ease;
+  opacity: 0;
+  transition: max-height 0.22s ease, opacity 0.2s ease;
 }
 
 .faq-item.open .faq-answer {
   padding-bottom: 10px;
+  opacity: 1;
+}
+
+.faq-item.open {
+  border-color: #1d4ed8;
+  background: #eff6ff;
 }
 
 .grid {
@@ -273,27 +290,28 @@ body {
 }
 
 .two-cols {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  max-width: 720px;
-  margin: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .three-cols {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  max-width: 720px;
-  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .card {
-  background: #070a15;
-  border: 1px solid rgba(114, 127, 221, 0.35);
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.6);
   border-radius: 18px;
-  padding: 18px 18px 16px;
+  padding: 20px 20px 18px;
   font-size: 0.92rem;
-  color: #d6dafc;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color: #111827;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease,
     background-color 0.15s ease;
+  min-height: 180px;
 }
 
 .card h3 {
@@ -306,14 +324,14 @@ body {
 }
 
 .card.highlight {
-  border-color: rgba(114, 127, 221, 0.35);
+  border-color: rgba(37, 99, 235, 0.35);
 }
 
 .card:hover {
-  border-color: rgba(164, 119, 255, 0.6);
-  background-color: #090d1c;
+  border-color: rgba(37, 99, 235, 0.7);
+  background-color: #f9fafb;
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
 }
 
 .card ul {
@@ -327,29 +345,48 @@ body {
 
 .cta {
   border-radius: 18px;
-  padding: 24px 20px;
-  background: #070a15;
-  border: 1px solid rgba(114, 127, 221, 0.5);
+  padding: 28px 24px;
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  position: relative;
+  overflow: hidden;
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
 }
 
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(79, 70, 229, 0.16), transparent 55%);
+  pointer-events: none;
+}
+
 .cta h2 {
   font-size: 1.4rem;
   margin-bottom: 8px;
+  color: #111827;
+  position: relative;
+  z-index: 1;
 }
 
 .cta p {
   font-size: 0.96rem;
   margin-bottom: 16px;
-  color: #e2e4ff;
+  color: #4b5563;
+  position: relative;
+  z-index: 1;
 }
 
 .cta .btn {
   margin-top: 12px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .site-footer {
@@ -394,5 +431,11 @@ body {
 
   .grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 1024px) and (min-width: 721px) {
+  .how-grid,
+  .two-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
