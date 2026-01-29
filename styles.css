@@ -496,6 +496,20 @@ body {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Ensure 'Why Cryptomics' cards stack cleanly on mobile */
+  .difference-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .feature-card {
+    grid-column: auto;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
   .metrics-grid {
     grid-template-columns: minmax(0, 1fr);
   }
