@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cryptomics</title>
-  <meta name="description" content="Cryptomics builds cryptography-first infrastructure for safe, fine-grained access to genomic data." />
+  <meta name="description" content="Cryptomics lets people and institutions store genomic records like documents, control who can see them, and keep them encrypted with FHE." />
   <link rel="icon" type="image/png" href="cryptomics_favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -27,8 +27,8 @@
     <main>
       <section class="hero" id="top">
         <div class="hero-content reveal">
-          <p class="eyebrow">GENOMICS &amp; CRYPTOGRAPHY</p>
-          <h1>Infrastructure for safely using genomic data at scale.</h1>
+          <p class="eyebrow">GENOMIC VAULT &amp; CONSENT</p>
+          <h1>The access and rights layer for genomic data.</h1>
           <div class="hero-actions">
             <a class="btn primary" href="mailto:jcroyle@berkeley.edu">Book a call</a>
             <a class="btn secondary" href="#how-it-works">Learn how it works</a>
@@ -52,7 +52,7 @@
           </div>
           <div class="metric-card reveal">
             <div class="metric-number">1</div>
-            <p class="metric-caption">Genome can expose a lifetime of risk if not governed at the region level.</p>
+            <p class="metric-caption">Genome can expose a lifetime of risk if not stored, shared, and signed under strong controls.</p>
           </div>
         </div>
       </section>
@@ -64,30 +64,34 @@
         <div class="grid how-grid">
           <div class="card step-card reveal">
             <div class="step-label">01</div>
-            <h3>Ingest & map genomes</h3>
+            <h3>Store genomes like documents</h3>
             <p>
-              Ingest VCF/BAM and clinical context, then map them into genes, panels, and regions so that risk-critical loci can be addressed precisely.
+              Ingest genomic files and attach them to a durable, document-like record that can be referenced, archived, and shared without exposing the
+              underlying raw data by default.
             </p>
           </div>
           <div class="card step-card reveal">
             <div class="step-label">02</div>
-            <h3>Encrypt by region</h3>
+            <h3>Lock everything in an FHE vault</h3>
             <p>
-              Apply region-aware cryptography with per-gene and per-panel keys so irreversible identifiers are never broadly exposed.
+              Keep genomic data encrypted at rest and in use using fully homomorphic encryption (FHE) where applicable, so analysis can begin without
+              first decrypting entire genomes.
             </p>
           </div>
           <div class="card step-card reveal">
             <div class="step-label">03</div>
-            <h3>Enforce policy in code</h3>
+            <h3>Share via signed access grants</h3>
             <p>
-              Encode consent, IRB, and regulatory rules into machine-enforceable policies that gate key issuance and access workflows.
+              Use Cryptomics like a genomic Parchment or DocuSign: send structured access requests, capture signatures and approvals, and create
+              a clear record of who is allowed to use which datasets and for what purpose.
             </p>
           </div>
           <div class="card step-card reveal">
             <div class="step-label">04</div>
-            <h3>Audit every locus</h3>
+            <h3>Audit every request</h3>
             <p>
-              Capture region-level audit trails of who accessed which locus, when, and for what purpose, grounding trust for regulators and participants.
+              Generate an auditable trail of access grants, signatures, and data flows so institutions can show exactly how genomic data was handled
+              across research, clinical, and operational workflows.
             </p>
           </div>
         </div>
@@ -96,30 +100,31 @@
       <section class="section" id="difference">
         <div class="section-header reveal">
           <p class="section-label">WHY CRYPTOMICS</p>
+          <h2>A vault, a signing layer, and a roadmap to fine-grained genomic control.</h2>
         </div>
         <div class="grid three-cols difference-grid">
           <div class="card highlight feature-card reveal">
-            <h3>Region-aware cryptography</h3>
+            <h3>FHE-secured genomic vault</h3>
             <ul>
-              <li>Per-gene / per-interval keys (e.g., BRCA1, APOE, panels) instead of whole-file secrets.</li>
-              <li>Purpose-limited, time-bounded key material using modern primitives (e.g., AES-GCM, KMS).</li>
-              <li>Protocols where computations run on encrypted genomes; raw data is rarely decrypted.</li>
+              <li>Genomic data is stored encrypted by default, with fully homomorphic encryption (FHE) workflows for sensitive computation.</li>
+              <li>Modern storage encryption (e.g., AES-256) and key management to protect genomes at rest.</li>
+              <li>A foundation designed to support more granular, nucleotide-aware encryption in future iterations.</li>
             </ul>
           </div>
           <div class="card highlight reveal">
-            <h3>Fine-grained data architecture</h3>
+            <h3>Parchment-style genomic records</h3>
             <ul>
-              <li>Refactor genomes from monolithic VCF/BAM into addressable units: genes, regions, panels.</li>
-              <li>Region-level access policies and audit logs: who touched which locus, when, and why.</li>
-              <li>Designed for clinical pipelines, research workflows, and forensic queries.</li>
+              <li>Treat genomes like high-stakes documents, with clear ownership, retention, and sharing rules.</li>
+              <li>Structured records that can be referenced in contracts, protocols, and institutional workflows.</li>
+              <li>Built to integrate with lab, research, and hospital systems instead of replacing them.</li>
             </ul>
           </div>
           <div class="card highlight reveal">
-            <h3>Policy-aligned by default</h3>
+            <h3>DocuSign-style consent & auditability</h3>
             <ul>
-              <li>Translate consent, IRB, and regulatory requirements into machine-enforceable policies.</li>
-              <li>Keys are gated by policy decisions, not just network perimeter or file permissions.</li>
-              <li>Audit trails that stand up to regulators, ethics boards, and participants.</li>
+              <li>Capture signatures, approvals, and consent decisions around genomic data access.</li>
+              <li>Maintain a tamper-evident record of who requested, approved, and used which datasets.</li>
+              <li>Designed to support HIPAA/GDPR-aligned workflows and institutional governance processes.</li>
             </ul>
           </div>
         </div>
@@ -131,28 +136,25 @@
         </div>
         <div class="grid two-cols">
           <div class="card reveal">
-            <h3>Health systems & biobanks</h3>
+            <h3>Labs & health systems</h3>
             <p>
-              Enable precision medicine, risk prediction, and longitudinal research while keeping individual genomes governed by consent and policy.
+              Store patient and cohort genomes in a secure vault, manage access like documents, and generate clear audit trails for compliance teams.
             </p>
           </div>
           <div class="card reveal">
-            <h3>Biotechs & pharma</h3>
+            <h3>Research groups & biobanks</h3>
             <p>
-              Power discovery pipelines with secure, auditable genomic access that scales across studies, partners, and jurisdictions.
-            </p>
+              Replace ad hoc sharing (emails, drives, spreadsheets) with a governed platform for granting and tracking genomic data access.</p>
           </div>
           <div class="card reveal">
-            <h3>Forensic & public safety</h3>
+            <h3>Privacy-first custodians</h3>
             <p>
-              Apply genomic investigation under tight, region-level controls and transparent audit trails that stand up to scrutiny.
-            </p>
+              Offer genomic data access as a service, where every use is signed, auditable, and backed by strong cryptography.</p>
           </div>
           <div class="card reveal">
-            <h3>Privacy-first data custodians</h3>
+            <h3>Platform builders</h3>
             <p>
-              Offer genomic data access as a governed service with cryptography and policy wired into every query and export.
-            </p>
+              Embed Cryptomics as a genomic security and consent layer inside larger healthtech, research, or consumer genomics platforms.</p>
           </div>
         </div>
       </section>
@@ -160,7 +162,7 @@
       <section class="section" id="faq">
         <div class="section-header reveal">
           <p class="section-label">FAQ</p>
-          <h2>Don't see your answers? Contact us below.</h2>
+          <h2>Don&apos;t see your answers? Contact us below.</h2>
         </div>
         <div class="faq-list">
           <div class="faq-item reveal">
@@ -170,8 +172,8 @@
             </button>
             <div class="faq-answer">
               <p>
-                Cryptomics is designed to wrap and augment existing tools and file formats, not replace them. It adds region-aware encryption, policy
-                enforcement, and audit around the workflows you already run.
+                Cryptomics is designed to wrap and augment existing tools and file formats, not replace them. Today it provides a secure vault,
+                consent and access workflows, and auditability around the pipelines you already run.
               </p>
             </div>
           </div>
@@ -182,8 +184,8 @@
             </button>
             <div class="faq-answer">
               <p>
-                Deployment models are flexible. The goal is that your genomes remain under your control, while Cryptomics manages keys, policies, and
-                access enforcement at the region level.
+                Deployment models are flexible. The goal is that your genomes remain under your control, while Cryptomics manages encryption,
+                access workflows, and auditability.
               </p>
             </div>
           </div>
@@ -194,8 +196,8 @@
             </button>
             <div class="faq-answer">
               <p>
-                By encoding consent, IRB constraints, and regulatory requirements directly into policy and key issuance, Cryptomics helps you show
-                that genomic access is constrained, auditable, and aligned with governance.
+                By turning genomic access into signed, auditable events—backed by encryption and clear records of who approved what—Cryptomics
+                helps you demonstrate that handling of genomes is constrained, documented, and aligned with governance.
               </p>
             </div>
           </div>
@@ -206,8 +208,8 @@
             </button>
             <div class="faq-answer">
               <p>
-                Cryptomics is focused on institutions stewarding sensitive genomic cohorts, from focused research groups to large health systems
-                and national biobanks.
+                Cryptomics is focused on institutions stewarding sensitive genomic cohorts, from focused research groups to large health systems and
+                national biobanks. We start small with pilots and scale with you.
               </p>
             </div>
           </div>
