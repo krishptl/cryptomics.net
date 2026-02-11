@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <canvas id="matrix-bg" class="matrix-bg" aria-hidden="true"></canvas>
   <div class="page">
     <header class="site-header">
       <div class="logo">
@@ -26,8 +27,10 @@
 
     <main>
       <section class="section" id="contact">
-        <div class="cta">
+        <div class="section-header" style="text-align: center;">
           <h2>Contact Cryptomics</h2>
+        </div>
+        <div class="cta">
           <p>
             Working on secure bio-data exchange, genomic privacy, or trust infrastructure for health data? We're preparing pilot programs with labs and
             institutions and would love to talk.
@@ -38,15 +41,118 @@
     </main>
 
     <footer class="site-footer">
-      <span>&copy; <span id="year"></span> Cryptomics. All rights reserved.</span>
+      <span>&copy; <span id="year"></span> Cryptomics.</span>
       <span>End-to-end trust infrastructure for bio-data.</span>
+      <a
+        class="social-link linkedin"
+        href="https://www.linkedin.com/company/cryptomics"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Cryptomics on LinkedIn"
+      >
+        in
+      </a>
     </footer>
   </div>
 
   <script>
+    // Set this to true to disable the ATCG matrix animation on the contact page
+    window.DISABLE_HERO_MATRIX = false;
+
+    // Footer year
     const yearEl = document.getElementById('year');
     if (yearEl) {
       yearEl.textContent = new Date().getFullYear();
+    }
+
+    // ATCG "matrix" animation (light, subtle, full-page background, sides only)
+    if (!window.DISABLE_HERO_MATRIX && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const canvas = document.getElementById('matrix-bg');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const characters = ['A', 'T', 'C', 'G'];
+        const pageEl = document.querySelector('.page');
+
+        let pageLeft = 0;
+        let pageRight = window.innerWidth;
+
+        const resize = () => {
+          canvas.width = window.innerWidth * window.devicePixelRatio;
+          canvas.height = window.innerHeight * window.devicePixelRatio;
+
+          if (pageEl) {
+            const rect = pageEl.getBoundingClientRect();
+            pageLeft = rect.left;
+            pageRight = rect.right;
+          } else {
+            pageLeft = window.innerWidth * 0.2;
+            pageRight = window.innerWidth * 0.8;
+          }
+        };
+
+        resize();
+        window.addEventListener('resize', resize);
+
+        const columnWidth = 14; // px, narrower columns for higher density
+        let drops = [];
+        let columnChars = [];
+
+        const initDrops = () => {
+          const columns = Math.floor(canvas.width / (columnWidth * window.devicePixelRatio));
+          const maxRows = canvas.height / (18 * window.devicePixelRatio);
+          drops = new Array(columns)
+            .fill(0)
+            // Spread starting positions from slightly above the top to well inside the viewport
+            .map(() => -Math.random() * 10 + Math.random() * maxRows);
+          columnChars = new Array(columns)
+            .fill('A')
+            .map(() => characters[Math.floor(Math.random() * characters.length)]);
+        };
+
+        initDrops();
+
+        const draw = () => {
+          // Clear with slight trail
+          ctx.fillStyle = 'rgba(244, 246, 251, 0.9)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          ctx.fillStyle = 'rgba(129, 140, 248, 0.7)'; // soft blue
+          ctx.font = `${18 * window.devicePixelRatio}px system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif`;
+
+          const columns = drops.length;
+          for (let i = 0; i < columns; i++) {
+            const char = columnChars[i];
+            const xCss = i * columnWidth;
+            const x = xCss * window.devicePixelRatio;
+            const y = drops[i] * 18 * window.devicePixelRatio;
+
+            // Skip drawing in the central content band (keep only left/right rain)
+            if (xCss < pageLeft - columnWidth || xCss > pageRight) {
+              ctx.fillText(char, x, y);
+            }
+
+            // Constant flow: once a column passes the bottom, reset it above the viewport
+            if (y > canvas.height) {
+              drops[i] = -Math.random() * 20;
+            }
+
+            drops[i] += 0.35; // fall speed
+          }
+
+          requestAnimationFrame(draw);
+        };
+
+        // Randomly change all columns' characters about every 0.3 seconds
+        setInterval(() => {
+          const columns = columnChars.length;
+          if (!columns) return;
+          for (let i = 0; i < columns; i++) {
+            columnChars[i] = characters[Math.floor(Math.random() * characters.length)];
+          }
+        }, 300);
+
+        requestAnimationFrame(draw);
+      }
     }
   </script>
 </body>

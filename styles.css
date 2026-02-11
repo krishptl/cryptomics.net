@@ -25,6 +25,19 @@ body {
   max-width: 1040px;
   margin: 0 auto;
   padding: 32px 24px 64px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .site-header {
@@ -42,8 +55,8 @@ body {
 }
 
 .site-header.scrolled {
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .logo {
@@ -98,10 +111,22 @@ body {
 .hero {
   padding: 72px 0 56px;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-content {
   max-width: 720px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-matrix {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .eyebrow {
@@ -480,7 +505,41 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-left: auto;
+}
+
+.social-link.linkedin {
+  border-color: rgba(59, 130, 246, 0.65);
+  color: #2563eb;
+}
+
+.social-link:hover {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+/* Left-align footer tagline with copyright; keep LinkedIn icon on the right */
+.site-footer span:nth-child(2) {
+  flex: 0 0 auto;
+  text-align: left;
 }
 
 @media (max-width: 720px) {
@@ -540,6 +599,16 @@ body {
   .section-metrics {
     padding: 28px 20px 26px;
     border-radius: 18px;
+  }
+
+  /* Ensure FAQ question text is left-aligned on mobile */
+  .faq-question {
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .faq-question span:first-child {
+    text-align: left;
   }
 }
 @media (max-width: 1024px) and (min-width: 721px) {
