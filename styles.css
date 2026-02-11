@@ -71,6 +71,12 @@ body {
   margin-right: 4px;
 }
 
+@media (min-width: 960px) {
+  .logo img {
+    height: 34px;
+  }
+}
+
 .nav {
   display: flex;
   gap: 18px;
