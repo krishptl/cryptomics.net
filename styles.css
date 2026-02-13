@@ -177,6 +177,15 @@ body {
   border-radius: 18px;
   padding: 16px 18px 14px;
   border: 1px solid rgba(148, 163, 184, 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.metric-card:hover {
+  border-color: rgba(37, 99, 235, 0.7);
+  background-color: #f9fafb;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
 }
 
 .metric-number {
@@ -317,7 +326,7 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #c4c9ff;
+  color: #111827;
 }
 
 .faq-list {
@@ -451,6 +460,13 @@ body {
 }
 
 .card:hover {
+  border-color: rgba(37, 99, 235, 0.7);
+  background-color: #f9fafb;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+}
+
+.step-card:hover {
   border-color: rgba(37, 99, 235, 0.7);
   background-color: #f9fafb;
   transform: translateY(-3px);
