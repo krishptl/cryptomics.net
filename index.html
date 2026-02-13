@@ -39,27 +39,63 @@
       </section>
 
       <section class="section" id="why-now">
-        <div class="section-header reveal">
-          <p class="section-label">WHY NOW</p>
-          <h2>AI/ML is generating bio-data at scale, and we're still governing by email.</h2>
-        </div>
-        <div class="section-metrics">
-          <div class="metrics-grid">
-            <div class="metric-card reveal">
-              <div class="metric-number">Slow Approvals</div>
-              <p class="metric-caption">Data access requests stall for weeks between institutions.</p>
-            </div>
-            <div class="metric-card reveal">
-              <div class="metric-number">Disconnected Systems</div>
-              <p class="metric-caption">PDFs, emails, and spreadsheets still run critical compliance..</p>
-            </div>
-            <div class="metric-card reveal">
-              <div class="metric-number">No Granular Permissions</div>
-              <p class="metric-caption">Either full database exposure or nothing — no fine-grained control.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div class="section-header reveal">
+    <p class="section-label">WHY NOW</p>
+    <h2>Biomedical data is exploding, and governance still runs on email.</h2>
+  </div>
+
+  <div class="section-metrics">
+    <div class="metrics-grid">
+
+      <!-- Data Generation -->
+      <div class="metric-card reveal">
+        <div class="metric-icon">📈</div>
+        <div class="metric-title">Biological data is massive</div>
+        <p class="metric-caption">
+          Genomic databases now contain **trillions of base pairs** of sequence data, dwarfing earlier eras of biological research. :contentReference[oaicite:0]{index=0}
+        </p>
+      </div>
+
+      <!-- Market Growth -->
+      <div class="metric-card reveal">
+        <div class="metric-icon">🤖</div>
+        <div class="metric-title">AI/ML in genomics is booming</div>
+        <p class="metric-caption">
+          AI tools for genomic and biobank data are projected to grow at **~40%+ CAGR over the next decade**. :contentReference[oaicite:1]{index=1}
+        </p>
+      </div>
+
+      <!-- Governance Delays -->
+      <div class="metric-card reveal">
+        <div class="metric-icon">⏳</div>
+        <div class="metric-title">Slow manual approvals</div>
+        <p class="metric-caption">
+          Data access governance often relies on email and PDF workflows, stalling research and delaying insights by weeks. <!-- qualitative insight -->
+        </p>
+      </div>
+
+      <!-- Disconnected Systems -->
+      <div class="metric-card reveal">
+        <div class="metric-icon">📂</div>
+        <div class="metric-title">Silos & disconnected systems</div>
+        <p class="metric-caption">
+          Biomedical research data spans genomics, clinical records, imaging, and more — but many tools can’t interoperate efficiently. <!-- qualitative -->
+        </p>
+      </div>
+
+      <!-- Permissions Granularity -->
+      <div class="metric-card reveal">
+        <div class="metric-icon">🔐</div>
+        <div class="metric-title">No fine-grained access control</div>
+        <p class="metric-caption">
+          Most systems offer “all or nothing” permissions, limiting secure data sharing and controlled reuse. <!-- qualitative -->
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       <section class="section" id="how-it-works">
         <div class="section-header reveal">
@@ -91,7 +127,7 @@
             <div class="step-label">04</div>
             <h3>Capture Consent & Audit Trails</h3>
             <p>
-              Collect signatures, route approvals, and immutable audit trails for every action.
+              Collect signatures, route approvals, and save immutable audit trails for every action.
       </section>
 
       <section class="section" id="difference">
@@ -123,7 +159,7 @@
               </ul>
             </div>
             <div class="card highlight feature-card reveal">
-              <h3>Dashboard demo preview</h3>
+               <span class="pillar-chip">Dashboard Demo</span>
               <br>
               <p>
                 We're polishing the Cryptomics control plane experience. 
